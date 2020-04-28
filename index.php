@@ -31,12 +31,12 @@
         <p>URL de base :<br>https://geo.api.gouv.fr/communes/?nom=VILLE</p>
     </div>
     <form action="" method="GET">
-        <input type="text" placeholder="Ville recherchée">
+        <input type="text" name="nom" id="nom" placeholder="Ville recherchée">
         <input type="submit">
     </form>
 
     <table>
-        <thead>
+        <!-- <thead>
             <tr>
                 <th>Nom</th>
                 <th>Codes postaux</th>
@@ -51,7 +51,7 @@
                 <td>45446</td>
                 <td>71</td>
             </tr>
-        </tbody>
+        </tbody> -->
     </table>
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
