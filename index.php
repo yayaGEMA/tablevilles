@@ -12,7 +12,7 @@
         <a href="https://api.gouv.fr/api/api-geo.html">https://api.gouv.fr/api/api-geo.html</a></h1>
         <p>URL de base :<br>https://geo.api.gouv.fr/communes/?nom=VILLE</p>
     </div>
-    <form action="" method="GET">
+    <form action="https://geo.api.gouv.fr/communes/" method="GET">
         <input type="text" name="nom" id="nom" placeholder="Ville recherchée">
         <input type="submit">
     </form>
