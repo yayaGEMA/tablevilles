@@ -17,13 +17,13 @@ $('form').submit(function(e){
     e.preventDefault();
 
     // Suppression des éventuels anciens messages d'erreurs
-    $('table').find('.error').remove();
+    $('.table').find('.error').remove();
 
     let cityField = $('#nom').val();
 
     // Vérification que le champ est rempli
     if(cityField.length < 1){
-        $('table').prepend('<p class="error" style="color:red">Champ vide !</p>');
+        $('.table').prepend('<p class="error" style="color:red">Champ vide !</p>');
     } else {
 
         // Requête AJAX
@@ -32,16 +32,15 @@ $('form').submit(function(e){
             url: `https://geo.api.gouv.fr/communes/`,
             dataType: 'json',
             data: $(this).serialize(),
-            timeout: 1000,
             success: function(data){
 
                 // Condition si qlq chose est renvoyé
                 if(data.length == 0){
-                    $('table').prepend('<p class="error" style="color:red">Aucun résultat</p>');
+                    $('.table').prepend('<p class="error" style="color:red">Aucun résultat</p>');
                 }else {
 
                     // Créer l'en-tête du tableau
-                    let citiesTable = $('<thead><tr><th>Nom</th><th>Codes postaux</th><th>Population</th><th>Département</th></tr></thead><tbody></tbody>');
+                    let citiesTable = $('<table><thead><tr><th>Nom</th><th>Codes postaux</th><th>Population</th><th>Département</th></tr></thead><tbody></tbody></table>');
 
                     // Pour chaque ville dans le tableau data, on crée un nouveau tr dans le tableau
                     data.forEach(function(city){
@@ -53,7 +52,7 @@ $('form').submit(function(e){
                         cityName.text(city.nom);
 
                         let cityCodes = $('<td></td>');
-                        cityCodes.text(city.codesPostaux);
+                        cityCodes.html(city.codesPostaux.join('<br>'));
 
                         let cityPopulation = $('<td></td>');
                         cityPopulation.text(city.population);
@@ -69,15 +68,16 @@ $('form').submit(function(e){
 
                         // Insertion de la <tr> dans le <tbody> du tableau
                         citiesTable.find('tbody').append(newCity);
+                        console.log(city.population);
                     });
 
                     // Insertion du contenu dans la page, dans table
-                    $("table").html(citiesTable);
+                    $(".table").html(citiesTable);
                 }
 
             },
             error: function(){
-                $('table').html('<p>Problème de connexion</p>');
+                $('.table').html('<p>Problème de connexion</p>');
             },
             beforeSend: function(){
                 setOverlay();

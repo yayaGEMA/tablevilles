@@ -3,27 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Villes</title>
 </head>
-<style>
-    .titles, form{
-        text-align: center;
-    }
-    .titles p{
-        font-size: 2rem;
-    }
-    table{
-        margin: auto;
-        margin-top: 30px;
-        border: 2px solid black;
-        width: 50%;
-        padding: 1rem;
-        text-align: center;
-    }
-    table tr td{
-        padding: 1rem;
-    }
-</style>
 <body>
     <div class="titles">
         <h1>Récupérer les infos d'une ville à partir de l'api :<br>
@@ -35,7 +17,7 @@
         <input type="submit">
     </form>
 
-    <table>
+    <div class="table">
         <!-- <thead>
             <tr>
                 <th>Nom</th>
@@ -52,7 +34,7 @@
                 <td>71</td>
             </tr>
         </tbody> -->
-    </table>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <script src="js/script.js"></script>
